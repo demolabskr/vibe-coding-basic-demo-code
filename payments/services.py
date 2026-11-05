@@ -41,7 +41,7 @@ def confirm_payment(order, payment_key):
         locked.payment_key = payment_key
         locked.paid_at = timezone.now()
         locked.save(update_fields=["status", "payment_key", "paid_at"])
-        # 결제 완료가 데이터베이스에 확정된 뒤에 구매 확인 메일 작업을 맡긴다
         logger.info("결제 확인 성공 주문=%s 금액=%s", order.order_no, order.amount)
+        # 결제 완료가 데이터베이스에 확정된 뒤에 구매 확인 메일 작업을 맡긴다
         transaction.on_commit(lambda: send_receipt.enqueue(order.pk))
     return True
