@@ -29,7 +29,7 @@ def create_order(request):
     if Order.objects.filter(buyer=request.user, content=content, status=Order.Status.PAID).exists():
         messages.info(request, "이미 구매한 콘텐츠입니다.")
         return redirect(content.get_absolute_url())
-    order = Order.objects.create(buyer=request.user, content=content, amount=content.price)
+    order = Order.objects.create(buyer=request.user, content=content, amount=content.current_price)
     return redirect("payments:checkout", order_no=order.order_no)
 
 

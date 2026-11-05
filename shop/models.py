@@ -18,6 +18,7 @@ class Content(models.Model):
     summary = models.CharField("한 줄 소개", max_length=200)
     description = models.TextField("설명")
     price = models.PositiveIntegerField("가격(원)")
+    sale_price = models.PositiveIntegerField("할인가(원)", null=True, blank=True, help_text="비워 두면 할인하지 않습니다.")
     cover = models.ImageField("표지", upload_to="covers/")
     file = models.FileField("판매 파일", upload_to="files/", storage=private_storage)
     is_published = models.BooleanField("공개", default=False)
@@ -31,6 +32,11 @@ class Content(models.Model):
 
     def __str__(self):
         return self.title
+
+    @property
+    def current_price(self):
+        """지금 받는 가격. 할인가가 있으면 할인가."""
+        return self.sale_price if self.sale_price is not None else self.price
 
     def get_absolute_url(self):
         return reverse("shop:content_detail", args=[self.slug])

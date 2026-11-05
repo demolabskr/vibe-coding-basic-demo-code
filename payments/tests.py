@@ -32,6 +32,12 @@ class PaymentTests(TestCase):
         self.client.post("/orders/", {"content_id": self.content.id, "amount": 100})
         self.assertEqual(Order.objects.get().amount, 12000)
 
+    def test_sale_price_is_charged(self):
+        self.content.sale_price = 9000
+        self.content.save()
+        self.client.post("/orders/", {"content_id": self.content.id})
+        self.assertEqual(Order.objects.get().amount, 9000)
+
     def test_success_marks_order_paid(self):
         order = self.pay(12000)
         self.client.get(f"/payments/success/?paymentKey=pay_{order.id}&orderId={order.order_no}&amount=12000")

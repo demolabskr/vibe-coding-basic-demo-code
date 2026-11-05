@@ -43,7 +43,7 @@ class Command(BaseCommand):
             content = Content(
                 kind=item["kind"], title=item["title"], slug=item["slug"],
                 summary=item["summary"], description=item["description"],
-                price=item["price"], is_published=item["is_published"],
+                price=item["price"], sale_price=item.get("sale_price"), is_published=item["is_published"],
             )
             with open(SAMPLE / "covers" / f"{item['slug']}.png", "rb") as cover:
                 content.cover.save(f"{item['slug']}.png", File(cover), save=False)

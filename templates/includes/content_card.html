@@ -4,6 +4,6 @@
     <span class="badge">{{ content.get_kind_display }}</span>
     <h2 class="card-title">{{ content.title }}</h2>
     <p class="card-summary">{{ content.summary }}</p>
-    <p class="price">{{ content.price|won }}</p>
+    <p class="price">{% if content.sale_price is not None %}<s class="was">{{ content.price|won }}</s> {% endif %}{{ content.current_price|won }}</p>
   </div>
 </a>
