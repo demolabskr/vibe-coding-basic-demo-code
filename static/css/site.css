@@ -54,7 +54,9 @@ main.wrap { padding-top: 32px; padding-bottom: 48px; min-height: 60vh; }
 }
 @media (max-width: 600px) {
   .card-list { grid-template-columns: 1fr; }
-  .header-inner { flex-wrap: wrap; padding: 10px 0; }
+  /* 휴대폰에서는 로고와 메뉴를 두 줄로 나눠 메뉴가 화면 밖으로 밀리지 않게 한다 */
+  .header-inner { flex-direction: column; align-items: flex-start; gap: 6px; padding-top: 12px; padding-bottom: 12px; }
+  .nav { flex-wrap: wrap; gap: 6px 14px; }
 }
 
 /* 상세 */
