@@ -26,3 +26,33 @@ main.wrap { padding-top: 32px; padding-bottom: 48px; min-height: 60vh; }
 .hero { padding: 48px 0; }
 .hero h1 { font-size: 2rem; margin: 0 0 8px; }
 .site-footer { border-top: 1px solid var(--line); color: var(--muted); font-size: .85rem; padding: 24px 0; }
+
+/* 머리말 메뉴 */
+.nav { display: flex; align-items: center; gap: 16px; font-size: .95rem; }
+.nav a { text-decoration: none; color: var(--muted); }
+.nav a:hover { color: var(--ink); }
+
+/* 목록 */
+.page-title { font-size: 1.6rem; margin: 0 0 16px; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.chip { padding: 6px 14px; border: 1px solid var(--line); border-radius: 999px; background: var(--card); text-decoration: none; font-size: .9rem; }
+.chip.is-active { background: var(--ink); border-color: var(--ink); color: #fff; }
+.card-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.card { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; text-decoration: none; transition: box-shadow .15s; }
+.card:hover { box-shadow: 0 6px 18px rgba(0, 0, 0, .08); }
+.card-cover { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; }
+.card-body { padding: 14px 16px 18px; }
+.card-title { font-size: 1.05rem; margin: 6px 0 4px; }
+.card-summary { color: var(--muted); font-size: .9rem; margin: 0 0 8px; }
+.badge { display: inline-block; font-size: .75rem; font-weight: 700; color: var(--accent-dark); background: #fff1e6; padding: 2px 8px; border-radius: 4px; }
+.price { font-weight: 800; margin: 0; }
+.empty { color: var(--muted); }
+
+/* 화면 크기에 맞춰 바뀌는 배치 */
+@media (max-width: 860px) {
+  .card-list { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .card-list { grid-template-columns: 1fr; }
+  .header-inner { flex-wrap: wrap; padding: 10px 0; }
+}

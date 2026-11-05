@@ -2,12 +2,13 @@
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
-from django.views.generic import TemplateView
+from django.urls import include, path
+from django.views.generic import RedirectView
 
 urlpatterns = [
-    path("", TemplateView.as_view(template_name="home.html"), name="home"),
+    path("", RedirectView.as_view(pattern_name="shop:content_list"), name="home"),
     path("admin/", admin.site.urls),
+    path("", include("shop.urls")),
 ]
 
 # 개발 중에만 표지 이미지를 개발 서버가 내준다. 운영에서는 웹 서버나 객체 스토리지가 맡는다

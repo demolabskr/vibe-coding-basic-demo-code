@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}콘텐츠 · {{ SITE_NAME }}{% endblock %}
+{% block content %}
+<h1 class="page-title">콘텐츠</h1>
+<nav class="filters" aria-label="종류">
+  <a href="?" class="chip{% if not current_kind %} is-active{% endif %}">전체</a>
+  {% for value, label in kinds %}
+    <a href="?kind={{ value }}" class="chip{% if current_kind == value %} is-active{% endif %}">{{ label }}</a>
+  {% endfor %}
+</nav>
+<div class="card-list">
+  {% for content in contents %}
+    {% include "includes/content_card.html" %}
+  {% empty %}
+    <p class="empty">아직 공개된 콘텐츠가 없습니다.</p>
+  {% endfor %}
+</div>
+{% endblock %}

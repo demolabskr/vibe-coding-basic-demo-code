@@ -1,0 +1,9 @@
+{% load shop_extras %}<a class="card" href="{{ content.get_absolute_url }}">
+  <img class="card-cover" src="{{ content.cover.url }}" alt="{{ content.title }} 표지" loading="lazy">
+  <div class="card-body">
+    <span class="badge">{{ content.get_kind_display }}</span>
+    <h2 class="card-title">{{ content.title }}</h2>
+    <p class="card-summary">{{ content.summary }}</p>
+    <p class="price">{{ content.price|won }}</p>
+  </div>
+</a>
