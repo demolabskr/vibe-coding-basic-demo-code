@@ -1,0 +1,21 @@
+# 비밀 값: 예시 파일만 올린다
+.env
+.env.*
+!.env.example
+
+# 파이썬 가상환경과 임시 파일
+.venv/
+__pycache__/
+*.pyc
+
+# 데이터베이스 파일과 올린 파일, 판매 파일
+db.sqlite3
+media/
+private/
+
+# collectstatic 결과
+staticfiles/
+
+# 운영체제가 만드는 파일
+.DS_Store
+Thumbs.db

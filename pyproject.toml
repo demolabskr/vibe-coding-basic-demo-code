@@ -1,0 +1,20 @@
+[project]
+name = "my-shop"
+version = "0.1.0"
+description = "바이브 코딩 기초 지식 책의 예시 사이트: 나만의 콘텐츠 판매 사이트"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.12"
+dependencies = [
+    "dj-database-url>=3.1.2",
+    "django>=6.1,<6.2",
+    "gunicorn>=26.2.0",
+    "pillow>=13.0.0",
+    "python-dotenv>=1.2.4",
+    "whitenoise>=6.12.0",
+]
+
+[project.optional-dependencies]
+postgres = [
+    "psycopg[binary]>=3.3.8",
+]

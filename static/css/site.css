@@ -1,0 +1,28 @@
+/* 민지의 자료 가게 스타일. 스타일은 이 파일에만 쓴다(AGENTS.md). */
+:root {
+  --ink: #1f2328;
+  --muted: #5b6470;
+  --line: #e3e6ea;
+  --bg: #fafaf8;
+  --card: #ffffff;
+  --accent: #e8590c;
+  --accent-dark: #c2410c;
+  --radius: 8px;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.6;
+}
+a { color: inherit; }
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+.site-header { background: var(--card); border-bottom: 1px solid var(--line); }
+.header-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 60px; }
+.logo { font-weight: 800; font-size: 1.15rem; text-decoration: none; }
+main.wrap { padding-top: 32px; padding-bottom: 48px; min-height: 60vh; }
+.hero { padding: 48px 0; }
+.hero h1 { font-size: 2rem; margin: 0 0 8px; }
+.site-footer { border-top: 1px solid var(--line); color: var(--muted); font-size: .85rem; padding: 24px 0; }
