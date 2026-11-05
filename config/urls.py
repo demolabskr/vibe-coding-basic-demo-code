@@ -5,6 +5,11 @@ from django.contrib import admin
 from django.urls import include, path
 from django.views.generic import RedirectView, TemplateView
 
+# 관리자 화면의 머리말
+admin.site.site_header = "민지의 자료 가게 관리"
+admin.site.site_title = "민지의 자료 가게 관리"
+admin.site.index_title = "운영자 화면"
+
 urlpatterns = [
     path("", RedirectView.as_view(pattern_name="shop:content_list"), name="home"),
     path("admin/", admin.site.urls),
