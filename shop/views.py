@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.core.signing import BadSignature, SignatureExpired, TimestampSigner
-from django.http import FileResponse, HttpResponseForbidden
+from django.core.exceptions import PermissionDenied
+from django.http import FileResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 
@@ -50,7 +51,7 @@ def download(request, order_id):
     """구매자만 받는다. 확인을 통과하면 몇 분 동안만 쓸 수 있는 서명 주소로 보낸다."""
     order = get_object_or_404(Order, id=order_id, buyer=request.user)
     if not order.is_paid:
-        return HttpResponseForbidden("결제가 끝난 주문만 받을 수 있습니다.")
+        raise PermissionDenied("결제가 끝난 주문만 받을 수 있습니다.")
     token = signer.sign(str(order.id))
     return redirect("shop:download_file", token=token)
 
@@ -61,9 +62,9 @@ def download_file(request, token):
     try:
         order_id = signer.unsign(token, max_age=DOWNLOAD_LINK_SECONDS)
     except SignatureExpired:
-        return HttpResponseForbidden("내려받기 주소의 기한이 지났습니다. 내 자료실에서 다시 눌러 주세요.")
+        raise PermissionDenied("내려받기 주소의 기한이 지났습니다. 내 자료실에서 다시 눌러 주세요.")
     except BadSignature:
-        return HttpResponseForbidden("올바르지 않은 내려받기 주소입니다.")
+        raise PermissionDenied("올바르지 않은 내려받기 주소입니다.")
     order = get_object_or_404(Order, id=order_id, buyer=request.user, status=Order.Status.PAID)
     file = order.content.file
     inline = request.GET.get("inline") == "1"  # 영상은 내려받지 않고 화면에서 재생한다

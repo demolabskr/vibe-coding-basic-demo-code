@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}볼 수 없는 페이지입니다 · 민지의 자료 가게{% endblock %}
+{% block content %}
+<div class="error-page">
+  <p class="error-code">403</p>
+  <h1>볼 수 없는 페이지입니다</h1>
+  <p>{% if exception %}{{ exception }}{% else %}이 페이지를 볼 권한이 없습니다.{% endif %}</p>
+  <a class="buy-button" href="/library/">내 자료실로</a>
+</div>
+{% endblock %}

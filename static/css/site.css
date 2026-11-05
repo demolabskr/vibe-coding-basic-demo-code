@@ -144,3 +144,7 @@ main.wrap { padding-top: 32px; padding-bottom: 48px; min-height: 60vh; }
   .library-actions { grid-column: 1 / -1; }
   .library-actions .buy-button { width: 100%; text-align: center; }
 }
+
+/* 오류 화면 */
+.error-page { max-width: 480px; margin: 40px auto; text-align: center; }
+.error-code { font-size: 3rem; font-weight: 800; color: var(--accent-dark); margin: 0; }
