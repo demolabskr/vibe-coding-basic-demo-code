@@ -4,7 +4,7 @@ AI 코딩 에이전트가 이 저장소에서 일할 때마다 읽는 규칙 파
 
 ## 이 사이트
 
-- 전자책, 강의 영상, 서식 파일을 파는 작은 판매 사이트 「민지의 자료 가게」다. 무엇을 왜 만드는지는 `docs/PRD.md`를 본다.
+- 전자책, 강의 영상, 서식 파일을 파는 작은 판매 사이트 「민지의 자료 가게」다. 무엇을 왜 만드는지는 `docs/PRD.md`, 폴더와 흐름은 `docs/architecture.md`를 본다.
 - 첫 판 기능은 가입과 로그인, 콘텐츠 목록, 상세, 결제, 내려받기, 운영자 관리 화면이다. 쿠폰과 후기는 만들지 않는다.
 
 ## 스택
@@ -19,6 +19,8 @@ AI 코딩 에이전트가 이 저장소에서 일할 때마다 읽는 규칙 파
 - 패키지 설치와 실행은 uv로 한다: `uv sync`, `uv run python manage.py ...`
 - 개발 서버: `uv run python manage.py runserver`
 - 테스트: `uv run python manage.py test`
+- 예시 데이터: `uv run python manage.py seed_demo`(개발 데이터베이스에서만)
+- 전날 판매 보고: `uv run python manage.py sales_report`
 - 고친 뒤에는 테스트를 돌려 결과를 알린다.
 
 ## 폴더
