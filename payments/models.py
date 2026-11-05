@@ -21,6 +21,7 @@ class Order(models.Model):
     payment_key = models.CharField("결제 키", max_length=100, unique=True, null=True, blank=True)
     created_at = models.DateTimeField("주문 시각", auto_now_add=True)
     paid_at = models.DateTimeField("결제 시각", null=True, blank=True)
+    receipt_sent_at = models.DateTimeField("구매 확인 메일 보낸 시각", null=True, blank=True)
 
     class Meta:
         verbose_name = "주문"

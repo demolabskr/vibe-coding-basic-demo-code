@@ -1,0 +1,12 @@
+{% load shop_extras %}{{ order.buyer.username }}님, 구매해 주셔서 감사합니다.
+
+주문 번호: {{ order.order_no }}
+콘텐츠: {{ order.content.title }}
+금액: {{ order.amount|won }}
+결제 시각: {{ order.paid_at|date:"Y-m-d H:i" }}
+
+내 자료실에서 내려받거나 볼 수 있습니다.
+{{ library_url }}
+
+{{ site_name }}
+이 메일은 예시 사이트에서 보낸 것입니다.

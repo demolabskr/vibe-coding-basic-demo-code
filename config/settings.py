@@ -139,6 +139,10 @@ LOGGING = {
     },
 }
 
+# 화면과 따로 도는 작업(구매 확인 메일). 지금은 맡기는 즉시 그 자리에서 실행하는 방식이다.
+# 주문이 많아지면 작업 대기열과 일꾼 프로세스를 쓰는 백엔드로 바꾼다
+TASKS = {"default": {"BACKEND": "django.tasks.backends.immediate.ImmediateBackend"}}
+
 # 로그인
 LOGIN_URL = "login"
 LOGIN_REDIRECT_URL = "/"

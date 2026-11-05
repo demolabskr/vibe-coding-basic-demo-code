@@ -74,3 +74,24 @@ class PaymentTests(TestCase):
         order = self.pay(12000)
         response = self.client.get(f"/payments/success/?paymentKey=pay_{order.id}&orderId={order.order_no}&amount=12000")
         self.assertEqual(response.status_code, 400)
+
+
+@override_settings(FAKEPG_SEND_WEBHOOK=False, PAYMENT_SECRET_KEY="test_sk_테스트", PAYMENT_WEBHOOK_SECRET=SECRET)
+class ReceiptMailTests(TestCase):
+    def test_receipt_is_sent_once(self):
+        from django.core import mail
+        user = User.objects.create_user("buyer", email="buyer@example.com", password="예시값1234")
+        content = Content.objects.create(kind="ebook", title="예시 전자책", slug="e", summary="-",
+                                         description="-", price=9000, is_published=True)
+        order = Order.objects.create(buyer=user, content=content, amount=9000)
+        FakePayment.objects.create(payment_key="pay_x", order_no=order.order_no, order_name="-", amount=9000)
+        self.client.login(username="buyer", password="예시값1234")
+        url = f"/payments/success/?paymentKey=pay_x&orderId={order.order_no}&amount=9000"
+        with self.captureOnCommitCallbacks(execute=True):
+            self.client.get(url)
+        with self.captureOnCommitCallbacks(execute=True):  # 웹훅이 한 번 더 와도
+            body = json.dumps({"type": "payment.paid", "order_no": order.order_no, "payment_key": "pay_x"}).encode()
+            self.client.post("/payments/webhook/", body, content_type="application/json",
+                             headers={"X-Pay-Signature": sign(body, SECRET)})
+        self.assertEqual(len(mail.outbox), 1)
+        self.assertIn("예시 전자책", mail.outbox[0].subject)
