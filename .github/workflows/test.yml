@@ -17,3 +17,5 @@ jobs:
       - run: uv run python manage.py test
         env:
           DJANGO_SECRET_KEY: ci-only-not-a-real-secret
+          # 테스트는 디버그를 끈 운영 설정으로 돈다. 테스트용 요청은 HTTP라 HTTPS 강제 이동만 끈다
+          DJANGO_SECURE_SSL_REDIRECT: "false"
