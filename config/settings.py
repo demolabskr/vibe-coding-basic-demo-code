@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "shop",
 ]
 
 MIDDLEWARE = [
@@ -97,9 +98,16 @@ STATIC_URL = "static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
+# 사용자가 올린 미디어 파일(표지): 누구나 본다
+MEDIA_URL = "media/"
+MEDIA_ROOT = BASE_DIR / "media"
+
+# 판매 파일: 공개 주소가 없다. 결제를 마친 구매자에게만 서버가 내준다
+PRIVATE_ROOT = BASE_DIR / "private"
+
 STORAGES = {
     "default": {"BACKEND": "django.core.files.storage.FileSystemStorage"},
-    "staticfiles": {"BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage"},
+    "staticfiles": {"BACKEND": "whitenoise.storage.CompressedStaticFilesStorage"},
 }
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

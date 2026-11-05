@@ -16,7 +16,10 @@
    ```text
    uv sync
    uv run python manage.py migrate
+   uv run python manage.py seed_demo
    ```
+
+   `seed_demo`는 예시 계정과 콘텐츠를 넣는다. 운영자 `minji`, 회원 `buyer`와 `member`이고 비밀번호는 모두 예시값 `demo-pass-1234`다.
 
 5. 개발 서버를 켜고 브라우저에서 http://127.0.0.1:8000/ 을 연다.
 
