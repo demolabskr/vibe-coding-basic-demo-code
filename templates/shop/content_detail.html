@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load shop_extras %}
+{% block title %}{{ content.title }} · {{ SITE_NAME }}{% endblock %}
+{% block content %}
+<article class="detail">
+  <img class="detail-cover" src="{{ content.cover.url }}" alt="{{ content.title }} 표지">
+  <div class="detail-info">
+    <span class="badge">{{ content.get_kind_display }}</span>
+    <h1 class="detail-title">{{ content.title }}</h1>
+    <p class="detail-summary">{{ content.summary }}</p>
+    <p class="detail-price">{{ content.price|won }}</p>
+    {% block buy %}
+    <button class="buy-button" type="button" disabled>구매하기</button>
+    <p class="hint">결제 기능은 준비 중입니다.</p>
+    {% endblock %}
+  </div>
+</article>
+<section class="description">
+  <h2>소개</h2>
+  {{ content.description|linebreaks }}
+</section>
+{% endblock %}

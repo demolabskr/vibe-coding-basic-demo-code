@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 
 from .models import Content
 
@@ -16,7 +16,8 @@ def content_list(request):
     })
 
 
+
 def content_detail(request, slug):
-    """상세 페이지는 다음 요청에서 만든다. 지금은 목록 카드의 연결만 잇는다."""
-    from django.http import HttpResponse
-    return HttpResponse("상세 페이지 준비 중")
+    """콘텐츠 하나의 상세 페이지. 숨긴 콘텐츠는 없는 것처럼 404를 낸다."""
+    content = get_object_or_404(Content, slug=slug, is_published=True)
+    return render(request, "shop/content_detail.html", {"content": content})

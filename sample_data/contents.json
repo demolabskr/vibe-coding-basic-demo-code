@@ -4,7 +4,7 @@
     "kind": "template",
     "title": "엑셀 가계부 서식",
     "summary": "월별 지출을 한 장에 정리하는 엑셀 서식",
-    "description": "월별 수입과 지출을 한 장에 적고, 분류별 합계가 자동으로 계산되는 엑셀 서식이다.\n\n- 엑셀 파일 1개, 시트 3장(입력, 월별 요약, 분류표)\n- 구매 즉시 내려받기\n- 엑셀과 구글 스프레드시트에서 열린다",
+    "description": "월별 수입과 지출을 한 장에 적고, 분류별 합계가 자동으로 계산되는 엑셀 서식입니다.\n\n- 엑셀 파일 1개, 시트 3장(입력, 월별 요약, 분류표)\n- 구매 즉시 내려받기\n- 엑셀과 구글 스프레드시트에서 열립니다",
     "price": 12000,
     "file": "budget-template.xlsx",
     "is_published": true
@@ -14,7 +14,7 @@
     "kind": "template",
     "title": "독서 노트",
     "summary": "읽은 책을 한 쪽에 정리하는 인쇄용 노트",
-    "description": "책 제목, 읽은 날, 기억할 문장, 내 생각을 한 쪽에 적는 인쇄용 노트 서식이다.\n\n- A4 PDF 2쪽(작성 예시, 빈 양식)\n- 집에서 인쇄해 쓴다",
+    "description": "책 제목, 읽은 날, 기억할 문장, 내 생각을 한 쪽에 적는 인쇄용 노트 서식입니다.\n\n- A4 PDF 2쪽(작성 예시, 빈 양식)\n- 집에서 인쇄해 씁니다",
     "price": 8000,
     "file": "reading-note.pdf",
     "is_published": true
@@ -24,7 +24,7 @@
     "kind": "template",
     "title": "직장인 이메일 서식 모음",
     "summary": "보고, 요청, 사과, 감사 메일을 바로 쓰는 서식",
-    "description": "업무 메일에서 자주 쓰는 여덟 가지 상황의 서식을 모았다. 빈칸만 채우면 보낼 수 있다.\n\n- 텍스트 파일 8개를 묶은 압축 파일\n- 보고, 요청, 일정 조율, 사과, 감사, 거절, 안내, 후속 확인",
+    "description": "업무 메일에서 자주 쓰는 여덟 가지 상황의 서식을 모았습니다. 빈칸만 채우면 보낼 수 있습니다.\n\n- 텍스트 파일 8개를 묶은 압축 파일\n- 보고, 요청, 일정 조율, 사과, 감사, 거절, 안내, 후속 확인",
     "price": 9900,
     "file": "email-templates.zip",
     "is_published": true
@@ -34,7 +34,7 @@
     "kind": "ebook",
     "title": "디자인 기초 전자책",
     "summary": "비전공자를 위한 여백, 정렬, 글꼴 이야기",
-    "description": "발표 자료와 문서를 보기 좋게 만드는 기본 원리를 다룬 짧은 전자책이다.\n\n- PDF 6쪽\n- 여백, 정렬, 글꼴, 색 네 장",
+    "description": "발표 자료와 문서를 보기 좋게 만드는 기본 원리를 다룬 짧은 전자책입니다.\n\n- PDF 6쪽\n- 여백, 정렬, 글꼴, 색 네 장",
     "price": 15000,
     "file": "ebook-design-basics-v2.pdf",
     "is_published": true
@@ -44,7 +44,7 @@
     "kind": "ebook",
     "title": "혼자 일하는 사람의 글쓰기",
     "summary": "제안서와 소개글을 혼자 쓰는 사람을 위한 안내",
-    "description": "혼자 일하며 제안서, 소개글, 안내문을 직접 써야 하는 사람을 위한 짧은 전자책이다.\n\n- PDF 6쪽\n- 첫 문장, 짧게 쓰기, 고쳐 쓰기",
+    "description": "혼자 일하며 제안서, 소개글, 안내문을 직접 써야 하는 사람을 위한 짧은 전자책입니다.\n\n- PDF 6쪽\n- 첫 문장, 짧게 쓰기, 고쳐 쓰기",
     "price": 13000,
     "file": "writing-alone.pdf",
     "is_published": true
@@ -54,7 +54,7 @@
     "kind": "video",
     "title": "엑셀 함수 첫걸음 강의",
     "summary": "SUM부터 VLOOKUP까지, 짧은 강의 영상",
-    "description": "엑셀을 처음 쓰는 사람을 위한 짧은 함수 강의 영상이다. 구매하면 내 자료실에서 바로 본다.\n\n- 영상 1편(예시라 짧다)\n- 사이트 안에서 재생",
+    "description": "엑셀을 처음 쓰는 사람을 위한 짧은 함수 강의 영상입니다. 구매하면 내 자료실에서 바로 봅니다.\n\n- 영상 1편(예시라 짧습니다)\n- 사이트 안에서 재생",
     "price": 19000,
     "file": "excel-functions-lesson1.mp4",
     "is_published": true
@@ -64,7 +64,7 @@
     "kind": "template",
     "title": "월간 계획표",
     "summary": "한 달 일정을 한 장에 적는 계획표",
-    "description": "한 달 일정과 할 일을 한 장에 적는 계획표다. 아직 준비 중이라 숨겨 두었다.",
+    "description": "한 달 일정과 할 일을 한 장에 적는 계획표입니다. 아직 준비 중이라 숨겨 두었습니다.",
     "price": 5000,
     "file": "monthly-planner.pdf",
     "is_published": false
