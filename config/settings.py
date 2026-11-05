@@ -4,6 +4,7 @@
 읽을 값의 목록과 예시는 .env.example을 본다.
 """
 import os
+import warnings
 from pathlib import Path
 
 import dj_database_url
@@ -107,6 +108,9 @@ MEDIA_ROOT = BASE_DIR / "media"
 
 # 판매 파일: 공개 주소가 없다. 결제를 마친 구매자에게만 서버가 내준다
 PRIVATE_ROOT = BASE_DIR / "private"
+
+# collectstatic 전(개발, 테스트)에 staticfiles 폴더가 없다는 경고는 띄우지 않는다
+warnings.filterwarnings("ignore", message="No directory at")
 
 STORAGES = {
     "default": {"BACKEND": "django.core.files.storage.FileSystemStorage"},

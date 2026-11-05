@@ -11,6 +11,7 @@
     <p class="detail-price">{{ content.price|won }}</p>
     {% if owned %}
       <p class="owned">이미 구매한 콘텐츠입니다.</p>
+      <a class="buy-button" href="{% url 'shop:library' %}">내 자료실에서 받기</a>
     {% elif user.is_authenticated %}
       <form method="post" action="{% url 'payments:create_order' %}">
         {% csrf_token %}

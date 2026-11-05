@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load shop_extras %}
+{% block title %}내 자료실 · {{ SITE_NAME }}{% endblock %}
+{% block content %}
+<h1 class="page-title">내 자료실</h1>
+<p class="lead">{{ user.username }}님이 구매한 콘텐츠입니다. 내려받기 주소는 누를 때마다 새로 만들어지고 5분 뒤 만료됩니다.</p>
+<ul class="library">
+  {% for order in orders %}
+    <li class="library-item">
+      <img src="{{ order.content.cover.url }}" alt="" class="library-cover">
+      <div class="library-info">
+        <span class="badge">{{ order.content.get_kind_display }}</span>
+        <h2>{{ order.content.title }}</h2>
+        <p class="meta">주문 {{ order.order_no }} · {{ order.paid_at|date:"Y-m-d H:i" }} · {{ order.amount|won }}</p>
+      </div>
+      <div class="library-actions">
+        {% if order.content.kind == "video" %}
+          <a class="buy-button" href="{% url 'shop:watch' order.id %}">보기</a>
+        {% else %}
+          <a class="buy-button" href="{% url 'shop:download' order.id %}">내려받기</a>
+        {% endif %}
+      </div>
+    </li>
+  {% empty %}
+    <li class="empty">아직 구매한 콘텐츠가 없습니다. <a href="{% url 'shop:content_list' %}">콘텐츠 둘러보기</a></li>
+  {% endfor %}
+</ul>
+{% endblock %}

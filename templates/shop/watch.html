@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}{{ order.content.title }} · {{ SITE_NAME }}{% endblock %}
+{% block content %}
+<p><a href="{% url 'shop:library' %}">← 내 자료실</a></p>
+<h1 class="page-title">{{ order.content.title }}</h1>
+<video class="player" src="{{ video_url }}" controls preload="metadata"></video>
+<p class="hint">재생 주소는 5분 동안만 쓸 수 있습니다. 멈췄다면 이 화면을 새로 고칩니다.</p>
+{% endblock %}

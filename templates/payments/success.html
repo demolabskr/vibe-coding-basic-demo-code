@@ -11,6 +11,6 @@
     <dt>금액</dt><dd>{{ order.amount|won }}</dd>
     <dt>결제 시각</dt><dd>{{ order.paid_at|date:"Y-m-d H:i" }}</dd>
   </dl>
-  {% block next_action %}<a class="buy-button full" href="{% url 'shop:content_list' %}">콘텐츠 더 보기</a>{% endblock %}
+  <a class="buy-button full" href="{% url 'shop:library' %}">내 자료실로 가기</a>
 </div>
 {% endblock %}
