@@ -25,6 +25,7 @@ def env_list(name, default=""):
 # 사이트 기본 정보
 SITE_NAME = "민지의 자료 가게"
 CURRENCY = "KRW"
+OWNER_EMAIL = os.environ.get("OWNER_EMAIL", "minji@example.com")
 
 # 보안: 비밀 키는 .env에서만 읽는다. 값이 없으면 서버가 켜지지 않는다.
 SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]

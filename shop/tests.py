@@ -72,3 +72,15 @@ class ListTests(TestCase):
                                description="-", price=1000, is_published=False)
         self.assertNotContains(self.client.get("/contents/"), "숨긴 서식")
         self.assertEqual(self.client.get("/contents/hidden/").status_code, 404)
+
+
+class ApiTests(TestCase):
+    def test_api_lists_published_contents_without_file_url(self):
+        c = Content.objects.create(kind="ebook", title="공개 전자책", slug="open", summary="-",
+                                   description="-", price=9000, is_published=True)
+        c.cover.name = "covers/open.png"
+        c.save()
+        data = self.client.get("/api/contents/").json()
+        self.assertEqual(data["count"], 1)
+        self.assertEqual(data["results"][0]["title"], "공개 전자책")
+        self.assertNotIn("file", data["results"][0])
