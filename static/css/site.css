@@ -119,3 +119,13 @@ main.wrap { padding-top: 32px; padding-bottom: 48px; min-height: 60vh; }
 .prose { max-width: 720px; }
 .site-footer a { color: var(--muted); }
 .form-card > form > .form-error:first-child { margin-bottom: 12px; }
+
+/* 주문 확인과 결제 결과 */
+.summary { display: grid; grid-template-columns: 90px 1fr; gap: 8px 12px; margin: 0 0 20px; }
+.summary dt { color: var(--muted); }
+.summary dd { margin: 0; font-weight: 600; }
+.summary .strong { font-size: 1.2rem; font-weight: 800; }
+.result { text-align: center; }
+.result .summary { text-align: left; }
+.result-mark { width: 56px; height: 56px; line-height: 56px; margin: 0 auto 8px; border-radius: 50%; background: #eef6ee; color: #2f7d32; font-size: 1.6rem; font-weight: 800; }
+.owned { background: #eef6ee; border: 1px solid #cfe5cf; padding: 10px 14px; border-radius: 6px; font-weight: 600; margin: 0 0 12px; }

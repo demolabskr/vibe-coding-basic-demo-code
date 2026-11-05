@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}결제 실패 · {{ SITE_NAME }}{% endblock %}
+{% block content %}
+<div class="form-card result">
+  <h1>결제가 완료되지 않았습니다</h1>
+  <p>{{ reason }}</p>
+  {% if order %}<p class="hint">주문 번호 {{ order.order_no }}</p>
+  <a class="buy-button full" href="{{ order.content.get_absolute_url }}">상세 화면으로 돌아가기</a>{% endif %}
+</div>
+{% endblock %}

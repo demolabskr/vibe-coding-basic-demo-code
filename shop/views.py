@@ -20,4 +20,7 @@ def content_list(request):
 def content_detail(request, slug):
     """콘텐츠 하나의 상세 페이지. 숨긴 콘텐츠는 없는 것처럼 404를 낸다."""
     content = get_object_or_404(Content, slug=slug, is_published=True)
-    return render(request, "shop/content_detail.html", {"content": content})
+    owned = request.user.is_authenticated and content.orders.filter(
+        buyer=request.user, status="paid"
+    ).exists()
+    return render(request, "shop/content_detail.html", {"content": content, "owned": owned})

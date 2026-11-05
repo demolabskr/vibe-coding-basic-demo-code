@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load shop_extras %}
+{% block title %}결제 완료 · {{ SITE_NAME }}{% endblock %}
+{% block content %}
+<div class="form-card result">
+  <p class="result-mark">✓</p>
+  <h1>결제가 끝났습니다</h1>
+  <dl class="summary">
+    <dt>주문 번호</dt><dd>{{ order.order_no }}</dd>
+    <dt>콘텐츠</dt><dd>{{ order.content.title }}</dd>
+    <dt>금액</dt><dd>{{ order.amount|won }}</dd>
+    <dt>결제 시각</dt><dd>{{ order.paid_at|date:"Y-m-d H:i" }}</dd>
+  </dl>
+  {% block next_action %}<a class="buy-button full" href="{% url 'shop:content_list' %}">콘텐츠 더 보기</a>{% endblock %}
+</div>
+{% endblock %}

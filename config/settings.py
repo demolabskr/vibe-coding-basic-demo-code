@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "shop",
     "accounts",
     "payments",
+    "fakepg",
 ]
 
 MIDDLEWARE = [
@@ -110,6 +111,28 @@ PRIVATE_ROOT = BASE_DIR / "private"
 STORAGES = {
     "default": {"BACKEND": "django.core.files.storage.FileSystemStorage"},
     "staticfiles": {"BACKEND": "whitenoise.storage.CompressedStaticFilesStorage"},
+}
+
+# 사이트 주소: 결제창에서 돌아올 주소와 웹훅 주소를 만들 때 쓴다
+SITE_URL = os.environ.get("SITE_URL", "http://127.0.0.1:8000")
+
+# 결제 대행 서비스: 테스트 키만 쓴다. 실제 키는 운영 서버의 환경 변수에만 둔다
+PAYMENT_PUBLIC_KEY = os.environ.get("PAYMENT_PUBLIC_KEY", "")
+PAYMENT_SECRET_KEY = os.environ.get("PAYMENT_SECRET_KEY", "")
+PAYMENT_WEBHOOK_SECRET = os.environ.get("PAYMENT_WEBHOOK_SECRET", "")
+PAYMENT_CHECKOUT_URL = os.environ.get("PAYMENT_CHECKOUT_URL", "/fake-pg/checkout/")
+FAKEPG_SEND_WEBHOOK = env_bool("FAKEPG_SEND_WEBHOOK", True)
+
+# 로그: 결제 확인 결과를 시각과 함께 남긴다
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {"simple": {"format": "%(asctime)s %(levelname)s %(message)s", "datefmt": "%H:%M:%S"}},
+    "handlers": {"console": {"class": "logging.StreamHandler", "formatter": "simple"}},
+    "loggers": {
+        "payments": {"handlers": ["console"], "level": "INFO"},
+        "fakepg": {"handlers": ["console"], "level": "INFO"},
+    },
 }
 
 # 로그인

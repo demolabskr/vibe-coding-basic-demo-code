@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load shop_extras %}
+{% block title %}결제 · {{ SITE_NAME }}{% endblock %}
+{% block content %}
+<div class="form-card">
+  <h1>주문 확인</h1>
+  <dl class="summary">
+    <dt>주문 번호</dt><dd>{{ order.order_no }}</dd>
+    <dt>콘텐츠</dt><dd>{{ order.content.title }}</dd>
+    <dt>금액</dt><dd class="strong">{{ order.amount|won }}</dd>
+  </dl>
+  {# 카드 정보는 우리 사이트가 받지 않는다. 결제창은 결제 대행 서비스가 띄운다 #}
+  <form method="post" action="{{ checkout_url }}">
+    <input type="hidden" name="client_key" value="{{ client_key }}">
+    <input type="hidden" name="order_no" value="{{ order.order_no }}">
+    <input type="hidden" name="order_name" value="{{ order.content.title }}">
+    <input type="hidden" name="amount" value="{{ order.amount }}">
+    <input type="hidden" name="success_url" value="{{ success_url }}">
+    <input type="hidden" name="fail_url" value="{{ fail_url }}">
+    <button class="buy-button full" type="submit">결제하기</button>
+  </form>
+  <p class="hint">결제 대행 서비스의 결제창으로 이동합니다. 이 예시에서는 가상 결제창이 뜨고 실제 돈은 오가지 않습니다.</p>
+</div>
+{% endblock %}
